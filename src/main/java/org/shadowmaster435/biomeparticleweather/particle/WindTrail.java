@@ -1,0 +1,50 @@
+/*
+ * Decompiled with CFR 0.152.
+ */
+package org.shadowmaster435.biomeparticleweather.particle;
+
+import org.shadowmaster435.biomeparticleweather.compat.EnvType;
+import org.shadowmaster435.biomeparticleweather.compat.Environment;
+import org.shadowmaster435.biomeparticleweather.compat.FabricSpriteProvider;
+import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.particle.Particle;
+import net.minecraft.client.particle.ParticleProvider;
+import net.minecraft.client.particle.SpriteSet;
+import net.minecraft.core.particles.SimpleParticleType;
+import org.jetbrains.annotations.Nullable;
+import org.shadowmaster435.biomeparticleweather.particle.TrailParticleBase;
+import org.shadowmaster435.biomeparticleweather.util.Vector3;
+
+public class WindTrail
+extends TrailParticleBase {
+    public WindTrail(ClientLevel world, Vector3 pos, FabricSpriteProvider spriteProvider) {
+        super(world, pos, spriteProvider);
+        this.lifetime = 10;
+        this.quadSize = 0.05f;
+        this.fade_scale(0.0f, 10);
+        this.alpha = 0.25f;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+    }
+
+    @Environment(value=EnvType.CLIENT)
+    public static class Factory
+    implements ParticleProvider<SimpleParticleType> {
+        private final FabricSpriteProvider spriteProvider;
+
+        public Factory(FabricSpriteProvider spriteProvider) {
+            this.spriteProvider = spriteProvider;
+        }
+
+        @Nullable
+        public Particle createParticle(SimpleParticleType parameters, ClientLevel world, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
+            WindTrail particle = new WindTrail(world, new Vector3(x, y, z), this.spriteProvider);
+            particle.pickSprite((SpriteSet)this.spriteProvider);
+            return particle;
+        }
+    }
+}
+
