@@ -1,0 +1,13 @@
+This repository contains source derived from Biome Particle Weather / Impactful Weather.
+
+The upstream source repository declares the Mozilla Public License 2.0 (MPL-2.0).
+MPL-covered source code and modifications in this repository are distributed under MPL-2.0.
+The full license text is available at:
+https://www.mozilla.org/MPL/2.0/
+
+Upstream project and attribution:
+https://github.com/shadowmaster435/Impactful_Weather
+
+This is an unofficial NeoForge port. Third-party names and trademarks remain with
+their respective owners. Files that carry their own license notices remain subject
+to those notices.
